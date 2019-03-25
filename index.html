@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+	<meta charset="UTF-8">
+	<title>Meu IP - DETALHAR - Criação de sites em São Luis-MA</title>
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+	<style>
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Oswald', sans-serif;
+						background: #232931;
+		}
+
+		.container {
+			display: flex;
+			flex-flow: column wrap;
+			align-items: center;
+			justify-content: center;
+			justify-items:center;
+			height: 90vh;
+		}
+		.container h1 {
+			color:#4ECCA3;
+		}
+		.container h2 {
+			color:#eee;
+			font-size: 5.5em;
+			font-weight: 400;
+			margin-top: 0;
+		}
+		.copyright {
+			color: #fff;
+			width: 100%;
+			display: flex;
+			flex-flow: row wrap;
+			align-items: center;
+			justify-content: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+	<h1>Meu endereço IP:</h1>
+	<h2 id="ip-number"></h2>
+	</div>
+		<div class="copyright">
+		por <img src="logo.png" alt="">
+	</div>
+
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script>
+		'use strict';
+
+(function(){
+let el = document.getElementById('ip-number');
+axios.get('https://api.ipify.org/?format=json')
+.then(res=> {
+	el.innerHTML = res.data.ip;
+});
+})();
+	</script>
+</body>
+</html>
